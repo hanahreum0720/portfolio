@@ -184,7 +184,7 @@ section{
                         margin: 4.5rem 0 0 ;
                         li{
                             line-height: 1.5;
-                           span{
+                           >span{
                                 position: relative;
                                 font-weight: 700;
                                 &::after{
@@ -212,6 +212,7 @@ section{
                                     border:1px solid #333;
                                     color: #333;
                                     font-weight: 700;
+                                    transition: all 0.3s;
                                     @include beforeI($w:1.5rem,$h:1px){
                                         position: absolute;
                                         bottom: 1.2rem;
@@ -225,11 +226,25 @@ section{
                                         transform: skewX(40deg);
                                         background-color: #333;
                                     }
+                                    span{
+                                        display: inline-block;
+                                        width: 0;
+                                        height: 0;
+                                        font-size: 0.75rem;
+                                        font-weight: normal;
+                                        color: #ccc;
+                                        vertical-align: bottom;
+                                        overflow: hidden;
+                                    }
                                     &:hover{
                                         background-color: #333;
                                         color: #fff;
                                         &::before,&::after{
                                             background-color: #fff;
+                                        }
+                                        span{
+                                            width: auto;
+                                            height: auto;
                                         }
                                     }
                                 }
@@ -327,6 +342,7 @@ section{
                 .slide-img{
                     display: inline-block;
                     height: 100%;
+                    cursor: grab;
                 }
             }
 
