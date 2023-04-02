@@ -1,6 +1,4 @@
 @charset "utf-8";
-@import "reset.scss";    
-@import "main.scss"; 
-  
-
-         
+@import "_base.scss";    
+@import "_common.scss"; 
+@import "_main.scss"; 

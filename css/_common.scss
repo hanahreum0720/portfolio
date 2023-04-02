@@ -1,0 +1,276 @@
+//공통
+$main-txt: #4d4f5c;
+$red-txt : #f51a1a;
+$blue-txt : #2a6cef;
+$main-bg-txt : #fff;
+$main-color : #fdba1e;
+$sub-color : #12a6ac;
+$gray-color: #f5f6fa;
+$darkgray-color: #999;
+$bg-color : #eef2f5;
+$border-color :#e5e8eb;
+::selection{
+    background:$main-color;
+    color:#fff
+}
+@mixin mainfont{
+    font-family: "SpoqaR";
+}
+@mixin fontWeightM{
+    font-family:"SpoqaM";
+    font-weight: normal;
+}
+@mixin fontWeightB{
+    font-family:"SpoqaB";
+    font-weight: normal;
+}
+@mixin vitro{
+  font-family: 'vitro','Noto Sans KR', sans-serif;
+}
+
+@mixin gradient{    
+  background: -webkit-linear-gradient(
+    -40deg,
+    $main-color 47%,
+    #ff9557 100%
+  );
+  background: -moz-linear-gradient(
+    -40deg,
+    $main-color 47%,
+    #ff9557 100%
+  );
+  background: -o-linear-gradient(
+    -40deg,
+    $main-color 47%,
+    #ff9557 100%
+  );
+  background: linear-gradient(
+    -40deg,
+    $main-color 47%,
+    #ff9557 100%
+  );
+}
+@mixin txthide {
+    text-indent: -5000000000000000px;
+    overflow: hidden;
+    font-size: 0px;
+    text-align: left;
+}
+
+@mixin txtellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+}
+
+@mixin txtellipsisMulti($h:2.4rem, $lh:1.2rem, $l:2) {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $l;
+    /* 라인수 */
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    overflow: hidden;
+    line-height: $lh;
+    height: $h;
+}
+@mixin float{
+    overflow: hidden;
+    >*{
+        float: left;
+    }
+}
+
+@mixin flex{
+    display: flex;
+    justify-content: space-between;
+    @content;
+}
+
+@mixin tablecell {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    @content;
+    >* {
+        display: table-cell !important;
+    }
+}
+
+@mixin bgimg {
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@mixin virtualIcon($w:1rem, $h:1rem) {
+    content: '';
+    display: inline-block;
+    width: $w;
+    height: $h;
+    vertical-align: middle;
+    @include bgimg();
+    @content;
+}
+@mixin scrollBox(){    
+    &::-webkit-scrollbar {
+        width: 0px;
+        height: 0px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $darkgray-color;
+        border-radius: 5px;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+        border-radius: 5px;
+    }
+}
+@mixin clear() {
+    &::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+
+body,input,select,textarea,button,a{
+    color: $main-txt;
+    @include mainfont();
+}
+input{
+    padding: 0.5rem 1rem;
+}
+input[type="checkbox"]{
+    display: none;
+    &+label {
+        @include mainfont();
+        cursor: pointer;
+        &::before {
+            @include virtualIcon($w:1.5rem, $h:1.5rem) {
+                margin: -3px 0.5rem 0 0;
+                background-color: #fff;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
+            }
+        }
+    }
+    &:checked+label {
+        &::before {
+            background-color: $main-color;
+            background-image: url("../image/icon_checkbox.svg");
+            background-size: 55%;
+            border: 1px solid $main-color;
+        }
+    }
+}
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    min-width:15rem;
+    padding: 0.6rem 3.1rem 0.6rem 1.4rem;
+    background-image: url('../../images/admin/ic_btn_down.png');
+    background-position: right 1rem center;
+    background-repeat: no-repeat;
+    border-radius: 1rem;
+    border: 1px solid $border-color;
+    font-size: 1.4rem;
+    cursor: pointer;
+    &::-ms-expand {
+        display: none;
+    }
+}
+.center {
+    position: relative;
+    max-width: 128rem;
+    margin: 0 auto;
+    clear: both;
+}
+.red {
+    color: #f00 !important;
+}
+.txt_red {
+    color: $red-txt;
+}
+.txt_blue {
+    color: $blue-txt;
+}
+.btn{
+    display: inline-block;
+    padding: 1.5rem 3rem;
+    border-radius: 1rem;
+    font-size: 1.4rem;
+    text-align: center;
+    border: 1px solid transparent;
+    &.btn_main{
+        background-color: $main-color;
+        color: #fff;
+    }
+    &.btn_sub{
+        background-color: $sub-color;
+        color: #fff;
+    }
+    &.btn_gradient{
+        @include gradient();
+        color: #fff;
+    }
+    &.btn_line_main{
+        border:1px solid $main-color;
+        color:  $main-color;
+    }
+    &.btn_line_b{
+        border:1px solid  $main-txt;
+        color: $main-txt;
+    }
+    &.btn_square{
+        border-radius: 0;
+    }
+    &.disabled {
+        border: solid 1px $darkgray-color !important;
+        background: $darkgray-color !important;
+        color: #fff !important;
+    }
+}
+.loadingBlock {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10100;
+}
+
+@media only screen and (max-width: 768px) {    
+    .bottomFixedWrap{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        display: flex;   
+        width: 100%;
+        height: 4rem;        
+        z-index: 1000;
+        >button,>a{
+            flex: 1;
+        }
+        &.hide{
+            position: inherit;
+        }
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    html,body{
+        //font-size: 4.267vw;
+        //480기준 10px 1rem font-size: 2.08333vw;
+        //360기준
+        font-size: 2.5vw;
+    }
+}
+@media only screen and (max-width: 280px) {
+    html,body{
+        font-size: 12px;
+    }
+}

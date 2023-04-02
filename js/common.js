@@ -1,62 +1,50 @@
-function onClass(ul,num){
-    for(var li of ul){
-        li.classList.remove('on');
-    }
-    ul[num].classList.add('on');
-}
-const mainBox = document.querySelector('.mainBox');
-const portUl = document.querySelector('.port-ul-wrap');
-const portLi = document.querySelector('.port-ul').children;
-const portBox = document.querySelector('.port-boxes').children;
-let boxTop = 500;
-function nowBox() {
-    let scrollTop = window.scrollY;    
-    mainBox.classList.add('on');
-    portUl.classList.add('on');
-    if(scrollTop < boxTop && scrollTop > 200){
-        onClass(portLi,0);
-        onClass(portBox,0);
-    }else if(scrollTop > boxTop && scrollTop < boxTop*2 ){
-        onClass(portLi,1);
-        onClass(portBox,1);
-    }else if(scrollTop > boxTop*2  && scrollTop < boxTop*3 ){
-        onClass(portLi,2);
-        onClass(portBox,2);
-    }else if(scrollTop > boxTop*3  && scrollTop < boxTop*4 ){
-        onClass(portLi,3);
-        onClass(portBox,3);
-    }else if(scrollTop > boxTop*4 ){
-        onClass(portLi,4);
-        onClass(portBox,4);
-    }else if(scrollTop == 0){
-        for(var li of portLi){
-            li.classList.remove('on');
+$('.leftBox > ul > li > strong').on('click',function(){
+    $(this).toggleClass('active');
+    $(this).next('div').stop().slideToggle();
+});
+
+let sectionNow = 0;
+let goalheight = 0;  
+let sectionLength = $('.rightBox > div').length -1 ;
+function leftScroll(e){
+    let wheel = e.originalEvent.wheelDelta;
+    if(wheel < 0){
+        if(sectionNow < sectionLength){                 
+            e.preventDefault();
+            goalheight =  $('.rightBox > div').eq(sectionNow).position().top - 25;       
+            $('.bodyWrap').animate({
+                scrollTop: goalheight
+            }, 800);   
+            sectionNow++; 
         }
-        mainBox.classList.remove('on');
-        portUl.classList.remove('on');
+    }else{
+        if(sectionNow > 0){
+            e.preventDefault();
+            sectionNow--;      
+            goalheight =  $('.rightBox > div').eq(sectionNow).position().top - 25;       
+            $('.bodyWrap').animate({
+                scrollTop: goalheight
+            }, 800);  
+        }else if(sectionNow == 0){
+            goalheight = 0;
+            sectionNow = 0; 
+        }
     }
 }
-for(var i = 0; i<portLi.length ; i++){
-    (function(idx){
-        portLi[idx].onclick = function(){
-            window.scrollTo({top:(idx * boxTop + 450), left:0, behavior:'auto'});
-            nowBox();
-        }
-    })(i)
-}
-window.addEventListener('scroll', nowBox);
-nowBox();
+$('.rightBox').on('mousewheel',leftScroll);
+
+$('.leftBox .portfolio li').on('click',function(){
+    let link = $(this).data('portlink');
+    let goal = $('[data-portname="'+link+'"]');
+    goalpoint = goal.position().top - 25;
+    $('.bodyWrap').animate({
+        scrollTop: goalpoint
+    }, 800);
+    sectionNow = goal.index() - 1;
+});
 
 const slideUl = document.querySelector('.slide');
-//const slideImg = document.querySelectorAll('.slide-img');
-let imgWidth = 12100 - window.innerWidth;
-//let imgWidth = slide.scrollWidth;
-// for(var i = 0; i<slideImg.length ; i++){
-//     (function(idx){
-//         imgWidth += slideImg[idx].scrollWidth;
-//     })(i)
-// }
-//console.log(imgWidth);
+let imgWidth = 8000 - window.innerWidth;
 let x = 0;
 let startX, endX, touchX;
 var slideNo = false;

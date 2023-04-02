@@ -1,0 +1,412 @@
+@keyframes stroke {
+    0%   {
+        stroke:#fff;
+        stroke-dashoffset: 120px;
+    }
+    10%,50%{
+        stroke:#fff;
+        stroke-dashoffset: 0px;
+    }
+    60%, 100%{
+        stroke:transparent;
+        stroke-dashoffset: 0px;
+
+    }
+}
+.bodyWrap{
+    position: relative;
+    min-width: 1280px;
+    height: 100%;
+    background-color: #f5f5f5;
+    overflow: auto;
+    transition: all 0.4s;
+    @include scrollBox();
+    h1{
+        display: none;
+    }
+}
+.leftBox{
+    position: fixed;
+    top: 20px;
+    left: 15px;
+    width: 350px;
+    height: calc(100% - 40px);
+    border: 1px $border-color solid;
+    box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.03);
+    background-color: #fff;
+    border-radius: 30px;
+    overflow: hidden;
+    transition: all 0.5s;
+    h2{
+        display: none;
+    }
+    >div{
+        padding: 10px 20px 30px;
+        @include gradient();
+        color: #fff;
+        font-size: 25px;
+        @include vitro();
+        svg{
+            position: relative;
+            display: block;
+            padding: 0 0 10px;
+            text {
+                position: absolute;
+                top: 0;
+                left: 0;
+                font-size: 3rem;
+                fill:transparent;
+                stroke:transparent;
+                stroke-width: 1px;
+                stroke-dasharray: 160px;
+                animation: stroke 5s linear infinite;
+                animation-fill-mode: forwards;
+            }
+        }        
+        svg text:nth-child(1) {
+            animation-delay: 0s;
+        }
+        svg text:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        svg text:nth-child(3) {
+            animation-delay: 1s;
+        }
+        svg text:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+        svg text:nth-child(5) {
+            animation-delay: 2s;
+        }
+        svg text:nth-child(6) {
+            animation-delay: 2.5s;
+        }
+    }
+    >ul{
+        width: 100%;
+        height: 100%;
+        padding: 30px 20px 120px;
+        overflow-y: scroll;
+        @include scrollBox();
+        >li{
+            margin-bottom: 15px;
+            font-size: 16px;
+            strong{
+                position: relative;
+                display: block;
+                padding: 15px 20px;
+                @include fontWeightB();
+                font-size: 14px;
+                color:$sub-color;
+                background-color: $gray-color;
+                border-radius: 20px;
+                cursor: pointer;
+                &::before,&::after{
+                    @include virtualIcon($w:10px,$h:1px){
+                        position: absolute;
+                        top:22px;
+                        background-color: $sub-color;
+                    }
+                }
+                &::before{
+                    right: 29px;
+                    transform: rotate(135deg);
+                }
+                &::after{
+                    right: 22px;
+                    transform: rotate(-135deg);
+                }
+                &.active{
+                    background-color: $main-color;
+                    color: #fff;
+                    &::before,&::after{
+                        background-color:#fff;
+                    }
+                    &::before{
+                        transform: rotate(45deg);
+                    }
+                    &::after{
+                        transform: rotate(-45deg);
+                    }
+
+                }
+            }
+            div{
+                ul{
+                    padding: 10px;
+                    li{
+                        padding: 10px 0 0;
+                        line-height: 1.25;
+                    }
+                }
+            }
+            &.timeline{
+                div ul li{
+                    padding: 10px 0 0 5px;
+                    span{
+                        display: block;
+                        margin: 0 0px 5px;
+                        border-radius: 5px;
+                        font-size: 14px;
+                        color: $sub-color;
+                        &::before{
+                            @include virtualIcon($w:2px,$h:12px){
+                                margin: -2px 5px 0 -5px;
+                                background-color: $sub-color;
+                                opacity: 0.25;
+                            }
+                        }
+                    }
+                }
+            }
+            &.portfolio{
+                div ul li{
+                    cursor: pointer;
+                    &::before{
+                        @include virtualIcon($w:0px,$h:0px){
+                            margin: -3.8px 5px 0 0px;                               
+                            border-top: 4px solid transparent;
+                            border-bottom: 4px solid transparent;
+                            border-left: 6.5px solid $border-color;
+                        }                        
+                    }
+                    &:hover{
+                        color: $sub-color;
+                        @include fontWeightB();
+                        &::before{
+                            border-left: 6.5px solid $main-color;                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.rightBox{
+    position: relative;
+    left: 350px;
+    width: calc(100% - 350px);
+    padding: 30px;
+    padding-bottom: 200px;
+    h2{
+        padding: 10px 0 20px;
+        font-size: 20px;
+        @include fontWeightB();
+    }
+    .portBox{
+        position: relative;
+        padding: 30px;
+        margin-bottom: 20px;
+        background-color: #ffffff;
+        border: solid 1px $border-color;
+        border-radius: 5px;
+        overflow: hidden;
+        &::after{
+            @include virtualIcon($w:220px,$h:110px){
+                position: absolute;
+                top:75px;
+                right: 30px;
+                background-size: 100%;
+                border-radius: 2px;
+                overflow: hidden;
+                border: 2px solid $main-txt;
+            }
+
+        }
+        h3{
+            padding:0 0 10px;
+            border-bottom: 1px solid $border-color;
+            font-size: 20px;
+            @include fontWeightB();
+        }
+        >span{
+            position: absolute;
+            right: -2px;
+            bottom: -12px;
+            font-size: 60px;
+            color: $border-color;
+            @include fontWeightB();
+            opacity: 0.15;
+        }
+        p{
+            padding: 20px 0 15px;
+            line-height: 1.5;
+        }
+        >ul{
+            padding: 0 0 20px;
+            li{
+                line-height: 1.5;
+                font-size: 14px;
+                >span{
+                    position: relative;
+                    z-index: 1;
+                    &::after{
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        content: '';
+                        display: block;                                    
+                        width: 100%;
+                        height: 8px;
+                        background-color: $sub-color;
+                        opacity: 0.15;
+                        z-index: -1;
+                    }
+               }
+            }
+        }
+        .btnWrap{        
+            max-width: 70%;        
+            a{
+                position: relative;
+                display: inline-block;
+                padding: 12px 60px 10px 20px;
+                margin: 0 10px 10px 0;
+                border:1px solid #333;
+                border-radius: 30px;
+                color: #333;
+                font-weight: 700;
+                transition: all 0.3s;
+                &::before{
+                    @include virtualIcon($w:1.5rem,$h:1px){
+                        position: absolute;
+                        bottom:15px;
+                        right: 15px;
+                        background-color: #333;
+                    }
+                }
+                &::after{
+                    @include virtualIcon($w:1px,$h:0.75rem){
+                        position: absolute;
+                        bottom:16px;
+                        right: 17px;
+                        transform: skewX(40deg);
+                        background-color: #333;
+                    }
+                }
+                span{
+                    display: inline-block;
+                    width: 0;
+                    height: 0;
+                    font-size: 0.75rem;
+                    font-weight: normal;
+                    color: #ccc;
+                    vertical-align: bottom;
+                    overflow: hidden;
+                }
+                &:hover{
+                    background-color: #333;
+                    color: #fff;
+                    &::before,&::after{
+                        background-color: #fff;
+                    }
+                    span{
+                        width: auto;
+                        height: auto;
+                    }
+                }
+            }
+        }
+        &[data-portname="kpc"]{
+            &::after{
+                background-image: url(../image/img_port_kpc.png);
+            }
+            >ul li > span::after{
+                background-color: #ee2c49;
+            }
+            >span{
+                color: #ee2c49;
+            }
+        }
+        &[data-portname="mobon"]{
+            &::after{
+                background-image: url(../image/img_port_mobon.png);
+            }
+            >ul li > span::after{
+                background-color: #8cc331;
+            }
+            >span{
+                color: #8cc331;
+            }
+        }
+        &[data-portname="bigstock"]{
+            &::after{
+                background-image: url(../image/img_port_bigstock.png);
+            }
+            >ul li > span::after{
+                background-color: #0659ff;
+            }
+            >span{
+                color: #0659ff;
+            }
+        }
+        &[data-portname="1pay"]{
+            &::after{
+                background-image: url(../image/img_port_1pay.png);
+            }
+            >ul li > span::after{
+                background-color: #ffc600;
+            }
+            >span{
+                color: #ffc600;
+            }
+        }
+        &[data-portname="mobwith"]{
+            &::after{
+                background-image: url(../image/img_port_mobwith.png);
+            }
+            >ul li > span::after{
+                background-color: #8cc331;
+            }
+            >span{
+                color: #8cc331;
+            }
+        }
+        &[data-portname="hlcash"]{
+            &::after{
+                background-image: url(../image/img_port_hlcash.png);
+            }
+            >ul li > span::after{
+                background-color: #9013fe;
+            }
+            >span{
+                color: #9013fe;
+            }
+        }
+        &[data-portname="lead"]{
+            &::after{
+                background-image: url(../image/img_port_lead.png);
+            }
+            >ul li > span::after{
+                background-color: #4374c5;
+            }
+            >span{
+                color: #4374c5;
+            }
+        }
+        &[data-portname="design"]{
+            &::after{
+                display: none;
+            }
+            >div{
+                position: relative;
+                width: 100%;
+                height: 35rem;
+                padding: 2rem 0;
+                overflow: hidden;
+                .slide{
+                    position: absolute;
+                    height: 100%;
+                    display: flex;
+                    transition: all 1s linear;
+                    .slide-img{
+                        display: inline-block;
+                        height: 100%;
+                        cursor: grab;
+                    }
+                }
+    
+            }
+        }
+    }
+}
