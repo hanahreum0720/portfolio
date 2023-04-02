@@ -444,7 +444,7 @@ select::-ms-expand {
   background: linear-gradient(-40deg, #fdba1e 47%, #ff9557 100%);
   color: #fff;
   font-size: 25px;
-  font-family: "vitro", "Noto Sans KR", sans-serif;
+  font-family: "vitro", sans-serif;
 }
 .leftBox > div svg {
   position: relative;
