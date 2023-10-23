@@ -3,26 +3,49 @@ header {
     top: 8rem;
     left: 0;
     width: 100%;
-    z-index: 4000;
+    z-index: 1;
     .center {
         @include flex();
         align-items: center;
         @include centerAlign();
-        span {
+        span,button {
             display: block;
             color: $main-txt;
             font-size: 3rem;
             line-height: 1.8;
             transition: all 0.3s;
             cursor: pointer;
-            &:hover {
-                color: $main-color;
+        }
+        h1{
+            span{
+                @include fontPoint();
             }
         }
         .pageMenu {
             display: flex;
             gap: 3rem;
             z-index: 4500;
+            li{
+                position: relative;
+                &:hover{
+                    span,button{
+                        @include fontWeightE();
+                    }
+                    &:after{
+                        position: absolute;
+                        bottom: 5%;
+                        left: -5%;
+                        content: '';
+                        display: block;
+                        height: 3rem;
+                        background-color: $main-color;
+                        transform: skew(-10deg);
+                        z-index: 5;
+                        opacity: 0.5;
+                        animation: ani-width 0.2s ease-in-out 0s forwards;
+                    }
+                }
+            }
         }
     }
 }

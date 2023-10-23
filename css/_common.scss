@@ -1,9 +1,6 @@
 //공통
-$main-color : #4bd254;
-$sub-color : #30c98d;
-$gray-color: #fcfcff;
-$darkgray-color: #777;
-$bg-color : #eef2f5;
+$main-color : #00bb9c;
+$gray-color: #d8d8d8;
 $border-color :#e5e8eb;
 $main-txt: #111;
 $red-txt : #f51a1a;
@@ -131,6 +128,14 @@ $main-bg-txt : #fff;
     }
     100% {
         height:100%;
+    }
+}
+@keyframes ani-width {
+    0% {
+        width:0%;
+    }
+    100% {
+        width: 110%;
     }
 }
 @keyframes ani-height {
@@ -277,9 +282,6 @@ body{
 .txt_blue {
     color: $blue-txt;
 }
-.txt_sub {
-    color: $sub-color;
-}
 .btn{
     display: inline-block;    
     padding: 0.8rem 0rem;
@@ -355,7 +357,7 @@ body{
             left: 0;
             bottom: calc(120% + 5.5rem);
             display: block;
-            width: 18rem;
+            width: 20rem;
             content: attr(data-progressname);
             @include fontPoint();
             transform: translate(-48.5%,  -50%) rotate(90deg);
@@ -367,14 +369,14 @@ body{
             display: block;
             height: 32rem;
             width: 0.1rem;
-            background-color: #ccc;
+            background-color: $main-txt;
         }
         i{
             position: absolute;
             display: block;
             width: 100%;
             height: 0%;
-            background-color: #373737;
+            background-color: $main-color;
         }
     }
 }

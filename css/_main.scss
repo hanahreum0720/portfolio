@@ -70,6 +70,15 @@
     }
     
     .main02{
+        h2{
+            position: sticky;
+            top: 75%;
+            left: -15%;
+            @include fontPoint();
+            font-size: 30rem;
+            color: $gray-color;
+            opacity: 0.5;
+        }
         .center{
             height: 5000px;
             .animateFadeList{
@@ -78,7 +87,9 @@
                 width: 95%;
                 min-height: 60vh;
                 border-radius: 1rem;
-                background-color: #aaa;
+                background-color: #fff;
+                border: 1px solid $border-color;
+                box-shadow: 5px 5px 5px rgba(0,0,0,0.05);
                 overflow: hidden;
                 >li{
                     position: absolute;
