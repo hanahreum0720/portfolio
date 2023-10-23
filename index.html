@@ -1,270 +1,311 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="image/logo.png">
-    <title>HanAhreum</title>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="shortcut icon" href="./images/favicon.png">
+    <title>Enliple AI Lab</title>
     <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script src="./js/common.js"></script>
 </head>
-<body> 
-    <div class="bodyWrap">   
-        <h1>한아름_포트폴리오</h1>     
-        <section class="leftBox">
-            <h2>infomation</h2>
-            <div>
-                <svg  height=55 viewBox="0 0 250 55">
-                    <text x="0" y="85%">안</text>
-                    <text x="30" y="85%">녕</text>
-                    <text x="60" y="85%">하</text>
-                    <text x="90" y="85%">세</text>
-                    <text x="120" y="85%">요</text>
-                    <text x="150" y="85%">.</text>
-                </svg>
-                <p>퍼블리셔 한아름입니다.</p>
-            </div>
-            <ul>
-                <li>
-                    <strong>Profile</strong>
-                    <div>
-                        <ul>
-                            <li>nareum720@naver.com</li>
-                            <li>서울 구로동 거주, 서울근무희망</li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="timeline">
-                    <strong>Timeline</strong>
-                    <div>
-                        <ul>
-                            <li><span>2022.01~현재</span>인라이플 퍼블리셔팀</li>
-                            <li><span>2021.09</span>웹디자인 기능사 자격증 취득</li>
-                            <li><span>2019.07~2021.10</span>리드정보기술 SI개발팀 웹디자인&퍼블리싱</li>
-                            <li><span>2019.02~2019.07</span>디지털디자인[웹퍼블리셔]양성 교육이수</li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="portfolio">
-                    <strong>Portfolio</strong>
-                    <div>
-                        <ul>
-                            <li data-portlink="kpc">한국생산성본부 </li>
-                            <li data-portlink="mobon">모비온 </li>
-                            <li data-portlink="bigstock">빅스탁 </li>
-                            <li data-portlink="1pay">1페이 </li>
-                            <li data-portlink="mobwith">모비위드애드 </li>
-                            <li data-portlink="hlcash">힐링캐시 </li>
-                            <li data-portlink="lead">리드정보기술 </li>
-                            <li data-portlink="design">디자인 </li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </section>
-        <section class="rightBox">
-            <h2>Portfolio</h2>
-            <div class="portBox" data-portname="kpc">
-                <h3>한국생산성본부</h3>
-                <span>20.04-21.05</span>
-                <p>
-                    - 교육생,강사,기업,관리자 4개의 플랫폼을 구축하는 14개월의 장기 개발 프로젝트<br>
-                    - 전체 플랫폼의 반응형 퍼블리싱 작업<br>
-                    - 애니메이션, 스크롤 이벤트 등 다양한 인터렉션이 들어간 화면을 구성<br>
-                    - jsp 내 마크업 및 스크립트 수정한 파일을 svn을 통해 공유하여 개발자들과 협업<br>
-                    - 서브 페이지, 플랫폼 페이지, 학습창과 플레이어 등 서브 디자인 담당
-                </p>
-                <ul>
-                    <li><span>html · css · jquery · javascript · svn</span></li>
-                    <li><span>반응형 퍼블리싱 100%  · 서브디자인</span> </li>
-                </ul>
-                <div class="btnWrap">
-                    <a href="https://www.kpc.or.kr/" target="_blank" >메인홈페이지</a>
-                </div>
-            </div>
-            
-            <div class="portBox" data-portname="mobon">
-                <h3>모비온</h3>
-                <span>22.05-22.06</span>
-                <p>
-                    - 자사 홈페이지를 전체 리뉴얼하며 반응형페이지로 퍼블리싱<br>
-                    - vw, rem단위와 svg를 이용하여 어느 디바이스에서나 동일한 화면 작업<br>
-                    - 라이브러리가 제공하지않는 디자인의 슬라이드,탭도 직접 스크립트 작성하여 구현<br>
-                    - php의 마크업과 스크립트 수정 후 git을 통해 공유하며 개발자와 협업<br>
-                    - 내부 관리자페이지 리뉴얼 및 고도화, gridstack 활용하여 위젯 대시보드 구현
-                </p>
-                <ul>
-                    <li><span>html · css · scss · jquery · javascript · git</span></li>
-                    <li><span>반응형 퍼블리싱 100% </span> </li>
-                </ul>
-                <div class="btnWrap">
-                    <a href="https://www.mobon.net/main/m2/" target="_blank" >메인홈페이지</a>
-                    <a href="https://www.youtube.com/watch?v=vSalRkqhydM" target="_blank" >관리자페이지 <span>_작업화면에 관한 영상</span></a>
-                </div>
-            </div>
 
-            <div class="portBox" data-portname="bigstock">
-                <h3>빅스탁</h3>
-                <span>23.03</span>
-                <p>
-                    - 빅스탁 화면 전체 반응형 퍼블리싱<br>
-                    - vw, rem단위와 svg를 이용하여 어느 디바이스에서나 동일한 화면 작업<br>
-                </p>
-                <ul>
-                    <li><span>html · css · scss · jquery · javascript</span></li>
-                    <li><span>반응형 퍼블리싱 100%</span> </li>
+<body>
+    <div class='container main'>
+        <header class="white">
+            <div class="center">
+                <h1><span>한아름</span></h1>
+                <ul class="pageMenu">
+                    <li><span>Portfolio</span></li>
+                    <li><span>Publising</span></li>
+                    <li><span>Contact</span></li>
                 </ul>
-                <div class="btnWrap">
-                    <a href="http://www.big-stock.co.kr/" target="_blank">메인홈페이지</a>
-                </div>
             </div>
-            
-            <div class="portBox" data-portname="1pay">
-                <h3>1pay</h3>
-                <span>22.10-23.02</span>
-                <p>
-                    - 1pay 서비스의 화면 전체 반응형 퍼블리싱<br>
-                    - vw, rem단위와 svg를 이용하여 어느 디바이스에서나 동일한 화면 작업<br>
-                    - 달력 입력 값, 페이지 이동 등 화면 동작 스크립트 작업<br>
-                    - 이메일 등 html 작업
-                </p>
-                <ul>
-                    <li><span>html · css · scss · jquery · javascript</span></li>
-                    <li><span>반응형 퍼블리싱 100%</span> </li>
-                </ul>
-                <div class="btnWrap">
-                    <a href="https://www.my1pay.com/" target="_blank">메인홈페이지</a>
+        </header>
+        <div class='pageWrap'>
+            <section class='page main01 now'>
+                <div class="scrollBox">
+                    <div class="center">
+                        <p>
+                            <span class="animateTyping">Grow your</span>
+                            <span class="animateTyping02">Company to</span>
+                            <span class="animateTyping03">it's full potential with AI</span>
+                        </p>
+                    </div>
                 </div>
-            </div>
+            </section>
+            <section class='page main02'>
+                <div class="scrollBox progressBarBox animateFadeBox">
+                    <span class="progressBar" data-progressname="Portfolio"><span><i></i></span></span>
+                    <div class="center animateFadeWrap">
+                        <div class="animateFadeList">
+                            <li class="start now">
+                                <div class="fadeCont">
+                                    <h3>인라이플AI</h3>
+                                    <span>23.05-23.06</span>
+                                    <p>
+                                        - 애니메이션
+                                    </p>
+                                    <ul>
+                                        <li><span>html · css · jquery · javascript </span></li>
+                                        <li><span>반응형 퍼블리싱 100% </span> </li>
+                                    </ul>
+                                    <div class="btnWrap">
+                                        <a href="https://www.enliple.com/business/ai/ai" target="_blank">메인홈페이지</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fadeCont">
+                                    <h3>한국생산성본부</h3>
+                                    <span>20.04-21.05</span>
+                                    <p>
+                                        - 교육생,강사,기업,관리자 4개의 플랫폼을 구축하는 14개월의 장기 개발 프로젝트<br>
+                                        - 전체 플랫폼의 반응형 퍼블리싱 작업<br>
+                                        - 애니메이션, 스크롤 이벤트 등 다양한 인터렉션이 들어간 화면을 구성<br>
+                                        - jsp 내 마크업 및 스크립트 수정한 파일을 svn을 통해 공유하여 개발자들과 협업<br>
+                                        - 서브 페이지, 플랫폼 페이지, 학습창과 플레이어 등 서브 디자인 담당
+                                    </p>
+                                    <ul>
+                                        <li><span>html · css · jquery · javascript · svn</span></li>
+                                        <li><span>반응형 퍼블리싱 100% · 서브디자인</span> </li>
+                                    </ul>
+                                    <div class="btnWrap">
+                                        <a href="https://www.kpc.or.kr/" target="_blank">메인홈페이지</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fadeCont">
+                                    <h3>모비온</h3>
+                                    <span>22.05-22.06</span>
+                                    <p>
+                                        - 자사 홈페이지를 전체 리뉴얼하며 반응형페이지로 퍼블리싱<br>
+                                        - vw, rem단위와 svg를 이용하여 어느 디바이스에서나 동일한 화면 작업<br>
+                                        - 라이브러리가 제공하지않는 디자인의 슬라이드,탭도 직접 스크립트 작성하여 구현<br>
+                                        - php의 마크업과 스크립트 수정 후 git을 통해 공유하며 개발자와 협업<br>
+                                        - 내부 관리자페이지 리뉴얼 및 고도화, gridstack 활용하여 위젯 대시보드 구현
+                                    </p>
+                                    <ul>
+                                        <li><span>html · css · scss · jquery · javascript · git</span></li>
+                                        <li><span>반응형 퍼블리싱 100% </span> </li>
+                                    </ul>
+                                    <div class="btnWrap">
+                                        <a href="https://www.mobon.net/main/m2/" target="_blank">메인홈페이지</a>
+                                        <a href="https://www.youtube.com/watch?v=vSalRkqhydM" target="_blank">관리자페이지
+                                            <span>_작업화면에 관한 영상</span></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fadeCont">
 
-            <div class="portBox" data-portname="mobwith">
-                <h3>모비위드애드</h3>
-                <span>22.03-22.08</span>
-                <p>
-                    - 풀페이지 스크롤, 슬라이드, 스크롤 화면전환, 탭 등 모두 스크립트로 구현<br>
-                    - pc와 모바일 디바이스에 따라 스크롤 동작을 다르게 구성하여 스크립트 작성
-                </p>
-                <ul>
-                    <li><span>html · css · scss · javascript</span></li>
-                    <li><span>반응형 퍼블리싱 100%</span> </li>
-                </ul>
-                <div class="btnWrap">
-                    <a href="https://mobwith.co.kr/bridge/" target="_blank" >브릿지페이지 </a>
-                    <a href="https://www.polarisofficead.co.kr/" target="_blank">폴라리스오피스애드</a>
-                    <a href="https://www.whowhoad.com/" target="_blank">후후애드</a>
-                    <a href="https://www.liveread.co.kr/" target="_blank">라이브리애드</a>
+                                    <h3>빅스탁</h3>
+                                    <span>23.03</span>
+                                    <p>
+                                        - 빅스탁 화면 전체 반응형 퍼블리싱<br>
+                                        - vw, rem단위와 svg를 이용하여 어느 디바이스에서나 동일한 화면 작업<br>
+                                    </p>
+                                    <ul>
+                                        <li><span>html · css · scss · jquery · javascript</span></li>
+                                        <li><span>반응형 퍼블리싱 100%</span> </li>
+                                    </ul>
+                                    <div class="btnWrap">
+                                        <a href="http://www.big-stock.co.kr/" target="_blank">메인홈페이지</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fadeCont">
+                                    <h3>1pay</h3>
+                                    <span>22.10-23.02</span>
+                                    <p>
+                                        - 1pay 서비스의 화면 전체 반응형 퍼블리싱<br>
+                                        - vw, rem단위와 svg를 이용하여 어느 디바이스에서나 동일한 화면 작업<br>
+                                        - 달력 입력 값, 페이지 이동 등 화면 동작 스크립트 작업<br>
+                                        - 이메일 등 html 작업
+                                    </p>
+                                    <ul>
+                                        <li><span>html · css · scss · jquery · javascript</span></li>
+                                        <li><span>반응형 퍼블리싱 100%</span> </li>
+                                    </ul>
+                                    <div class="btnWrap">
+                                        <a href="https://www.my1pay.com/" target="_blank">메인홈페이지</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fadeCont">
+                                    <h3>모비위드애드</h3>
+                                    <span>22.03-22.08</span>
+                                    <p>
+                                        - 풀페이지 스크롤, 슬라이드, 스크롤 화면전환, 탭 등 모두 스크립트로 구현<br>
+                                        - pc와 모바일 디바이스에 따라 스크롤 동작을 다르게 구성하여 스크립트 작성
+                                    </p>
+                                    <ul>
+                                        <li><span>html · css · scss · javascript</span></li>
+                                        <li><span>반응형 퍼블리싱 100%</span> </li>
+                                    </ul>
+                                    <div class="btnWrap">
+                                        <a href="https://mobwith.co.kr/bridge/" target="_blank">브릿지페이지 </a>
+                                        <a href="https://www.polarisofficead.co.kr/" target="_blank">폴라리스오피스애드</a>
+                                        <a href="https://www.whowhoad.com/" target="_blank">후후애드</a>
+                                        <a href="https://www.liveread.co.kr/" target="_blank">라이브리애드</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fadeCont">
+                                    <h3>힐링캐시</h3>
+                                    <span>22.08</span>
+                                    <p>
+                                        - 힐링캐시 소개페이지 반응형 퍼블리싱<br>
+                                        - skicy 스크롤 이벤트 구현
+                                    </p>
+                                    <ul>
+                                        <li><span>html · css · scss · javascript</span></li>
+                                        <li><span>반응형 퍼블리싱 100%</span> </li>
+                                    </ul>
+                                    <div class="btnWrap">
+                                        <a href="https://healingcash.co.kr/" target="_blank">메인홈페이지</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="fadeCont">
+                                    <h3>리드정보기술</h3>
+                                    <span>21.10</span>
+                                    <p>
+                                        - 자사 홈페이지를 전체 리뉴얼하며 반응형페이지로 퍼블리싱<br>
+                                        - 기획과 디자인부터 퍼블리싱 후 배포까지 전반적인 작업을 전체 진행<br>
+                                        - 구글지도, 탭 등 전반적인 스크립트 작업 진행
+                                    </p>
+                                    <ul>
+                                        <li><span>html · css · jquery · javascript</span></li>
+                                        <li><span>반응형 퍼블리싱 100% · 디자인 100%</span> </li>
+                                    </ul>
+                                    <div class="btnWrap">
+                                        <a href="http://leadit.co.kr/" target="_blank">메인홈페이지</a>
+                                    </div>
+                                </div>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="portBox" data-portname="hlcash">
-                <h3>힐링캐시</h3>
-                <span>22.08</span>
-                <p>
-                    - 힐링캐시 소개페이지 반응형 퍼블리싱<br>
-                    - skicy 스크롤 이벤트 구현
-                </p>
-                <ul>
-                    <li><span>html · css · scss · javascript</span></li>
-                    <li><span>반응형 퍼블리싱 100%</span> </li>
-                </ul>
-                <div class="btnWrap">
-                    <a href="https://healingcash.co.kr/" target="_blank">메인홈페이지</a>
+            </section>
+            <section class='page main03'>
+                <div class="scrollBox">
+                    <div class="center">
+                        <h2>Publising</h2>
+                        <ul>
+                            <li><a href="#">반응형</a></li>
+                            <li><a href="#">관리자</a></li>
+                            <li><a href="#">위젯대시보드</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="portBox" data-portname="lead">
-                <h3>리드정보기술</h3>
-                <span>21.10</span>
-                <p>
-                    - 자사 홈페이지를 전체 리뉴얼하며 반응형페이지로 퍼블리싱<br>
-                    - 기획과 디자인부터 퍼블리싱 후 배포까지 전반적인 작업을 전체 진행<br>
-                    - 구글지도, 탭 등 전반적인 스크립트 작업 진행
-                </p>
-                <ul>
-                    <li><span>html · css · jquery · javascript</span></li>
-                    <li><span>반응형 퍼블리싱 100% · 디자인 100%</span> </li>
-                </ul>
-                <div class="btnWrap">
-                    <a href="http://leadit.co.kr/" target="_blank">메인홈페이지</a>
+            </section>
+            <section class='page main04'>
+                <div class="scrollBox">
+                    <div class="center">
+                        <h2>Contact</h2>
+                        이름, 연락처
+                        <div>
+                            <strong>Profile</strong>
+                            <ul>
+                                <li>nareum720@naver.com</li>
+                                <li>서울 구로동 거주, 서울근무희망</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong>Timeline</strong>
+                            <ul>
+                                <li><span>2022.01~현재</span>인라이플 퍼블리셔팀</li>
+                                <li><span>2021.09</span>웹디자인 기능사 자격증 취득</li>
+                                <li><span>2019.07~2021.10</span>리드정보기술 SI개발팀 웹디자인&퍼블리싱</li>
+                                <li><span>2019.02~2019.07</span>디지털디자인[웹퍼블리셔]양성 교육이수</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="portBox" data-portname="design">
-                <h3>디자인</h3>
-                <p>
-                    - 웹디자인, 제안서디자인, 발표자료 등
-                   </p>
-                <div>
-                <ul class="slide">
-                    <li>
-                        <img src="./image/port-img-01.png" class="slide-img" alt="디자인시안">
-                    </li>
-                    <li>
-                        <img src="./image/port-img-02.png" class="slide-img" alt="디자인시안">
-                    </li>
-                    <li>
-                        <img src="./image/port-img-03.png" class="slide-img" alt="디자인시안">
-                    </li>
-                    <li>
-                        <img src="./image/port-img-04.png" class="slide-img" alt="디자인시안">
-                    </li>
-                    <li>
-                        <img src="./image/port-img-05.png" class="slide-img" alt="디자인시안"> 
-                    </li>
-                    <li>                       
-                        <img src="./image/port-img-06.png" class="slide-img" alt="디자인시안">  
-                    </li>
-                    <li>                      
-                        <img src="./image/port-img-07.png" class="slide-img" alt="디자인시안">  
-                    </li>
-                    <li>                      
-                       <img src="./image/port-img-08.png" class="slide-img" alt="디자인시안">                        
-                    </li>
-                    <li>                        
-                        <img src="./image/port-img-09.png" class="slide-img" alt="디자인시안">
-                    </li>
-                    <li>
-                        <img src="./image/port-img-010.jpg" class="slide-img" alt="디자인시안">
-                    </li>
-                    <li>
-                        <img src="./image/port-img-011.jpg" class="slide-img" alt="디자인시안">
-                    </li>
-                    <li>                        
-                        <img src="./image/port-img-012.png" class="slide-img" alt="디자인시안">
-                    </li>
-                    <li>
-                        <img src="./image/port-img-013.png" class="slide-img" alt="디자인시안">
-                    </li>
-                    <li>
-                        <img src="./image/port-img-014.png" class="slide-img" alt="디자인시안">
-                    </li>
-                    <li>
-                        <img src="./image/port-img-015.png" class="slide-img" alt="디자인시안">
-                    </li>
-                    <li>
-                        <img src="./image/port-img-016.jpg" class="slide-img" alt="디자인시안">
-                    </li>
-                    <li>
-                        <img src="./image/port-img-017.jpg" class="slide-img" alt="디자인시안">
-                    </li>
-                    <li>
-                        <img src="./image/port-img-018.jpg" class="slide-img" alt="디자인시안">
-                    </li>
-                    <li>
-                        <img src="./image/port-img-019.jpg" class="slide-img" alt="디자인시안">
-                    </li>
-                    <li>
-                        <img src="./image/port-img-020.jpg" class="slide-img" alt="디자인시안">
-                    </li>
-                    <li>
-                        <img src="./image/port-img-021.jpg" class="slide-img" alt="디자인시안">
-                    </li>
-                    <li>
-                        <img src="./image/port-img-022.jpg" class="slide-img" alt="디자인시안">
-                    </li>
-                </ul>
+            </section>
+            <footer class='page footer'>
+                <div class="scrollBox">
+                    <div class="center">
+                        <div class="copyright">
+                            Copyright(c) ENLIPLE All rights reserved.
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </footer>
+        </div>
     </div>
-    <script src="./js/common.js"></script>    
+    <script>
+        $(document).ready(function () {
+            $('.main01').trigger('click');
+            setTimeout(() => {
+                $('.main01 .balckBG span').addClass('on');
+            }, 2000);
+            $(window).on('wheel touchend', function () {
+                if ($('.main01').hasClass('now') == true || $('.main04').hasClass('now') == true) {
+                    $('header').addClass('white');
+                } else {
+                    $('header').removeClass('white');
+                }
+                if ($('.main01').hasClass('now') == true) {
+                    $('.main01 .balckBG').removeClass('active').addClass('on');
+                } else {
+                    $('.main01 .balckBG').removeClass('on').addClass('active');
+                }
+                if ($('.main02').hasClass('now') == true) {
+                    $('.main02 .animateTxtFill li').eq(0).addClass('now')
+                    $('.main02 .animateTxtFill li').eq(0).find('.fadeCont').addClass('on');
+                    if ($('.main02 .animateTxtFill li').eq(0).find('input[type="checkbox"]').prop(
+                            "checked") == false) {
+                        $('.main02 .animateTxtFill li').eq(0).find('input[type="checkbox"]').prop(
+                            'checked', true).trigger("change");
+
+                    }
+                }
+                if ($('.main04').hasClass('now') == true) {
+                    $('.main04 .balckBG').addClass('on');
+                    $('.main04').addClass('on');
+                }
+            });
+            $('.topBtn').on('click', function () {
+                $('header').addClass('white');
+                $('.main01').addClass('now');
+                $('.main01 .balckBG').removeClass('active').addClass('on');
+            });
+
+        });
+        async function typingAni(name, speed, delay) {
+            let txtWrap = document.querySelector(name);
+            let txtArray = new Array();
+            let txt = txtWrap.innerText;
+            txtWrap.innerText = '';
+            let i = 0;
+            txtArray.push(txt);
+            const letter = txtArray[i].split("");
+            await wait(delay);
+            while (letter.length) {
+                await wait(speed);
+                txtWrap.innerHTML += letter.shift();
+            }
+            await wait(2500);
+
+        }
+
+        function wait(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms))
+        }
+        typingAni(".animateTyping", 100, 2500);
+        typingAni(".animateTyping02", 100, 4000);
+        typingAni(".animateTyping03", 60, 5800);
+    </script>
 </body>
+
 </html>

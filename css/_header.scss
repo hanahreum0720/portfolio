@@ -1,0 +1,63 @@
+header {
+    position: fixed;
+    top: 8rem;
+    left: 0;
+    width: 100%;
+    z-index: 4000;
+    .center {
+        @include flex();
+        align-items: center;
+        @include centerAlign();
+        span {
+            display: block;
+            color: $main-txt;
+            font-size: 3rem;
+            line-height: 1.8;
+            transition: all 0.3s;
+            cursor: pointer;
+            &:hover {
+                color: $main-color;
+            }
+        }
+        .pageMenu {
+            display: flex;
+            gap: 3rem;
+            z-index: 4500;
+        }
+    }
+}
+
+footer {
+    height: auto !important;
+    min-height: 0 !important;
+    background-color: #fff;
+    .center {
+        .copyright {
+            padding: 5rem 0;
+            font-size: 1.6rem;
+            text-align: center;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    header {
+        top: 3rem;
+        .center {
+            span {
+                font-size: 1.6rem;
+            }
+            .pageMenu{
+                gap: 1rem;
+            }
+        }
+    }
+
+    footer {
+        .center {
+            .copyright {
+                font-size: 1rem;
+            }
+        }
+    }
+}

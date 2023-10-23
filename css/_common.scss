@@ -1,54 +1,26 @@
 //공통
-$main-txt: #4d4f5c;
+$main-color : #4bd254;
+$sub-color : #30c98d;
+$gray-color: #fcfcff;
+$darkgray-color: #777;
+$bg-color : #eef2f5;
+$border-color :#e5e8eb;
+$main-txt: #111;
 $red-txt : #f51a1a;
 $blue-txt : #2a6cef;
 $main-bg-txt : #fff;
-$main-color : #fdba1e;
-$sub-color : #12a6ac;
-$gray-color: #f5f6fa;
-$darkgray-color: #999;
-$bg-color : #eef2f5;
-$border-color :#e5e8eb;
-::selection{
-    background:$main-color;
-    color:#fff
-}
-@mixin mainfont{
-    font-family: "SpoqaR";
-}
-@mixin fontWeightM{
-    font-family:"SpoqaM";
-    font-weight: normal;
-}
-@mixin fontWeightB{
-    font-family:"SpoqaB";
-    font-weight: normal;
-}
-@mixin vitro{
-  font-family: 'vitro', sans-serif;
-}
 
-@mixin gradient{    
-  background: -webkit-linear-gradient(
-    -40deg,
-    $main-color 47%,
-    #ff9557 100%
-  );
-  background: -moz-linear-gradient(
-    -40deg,
-    $main-color 47%,
-    #ff9557 100%
-  );
-  background: -o-linear-gradient(
-    -40deg,
-    $main-color 47%,
-    #ff9557 100%
-  );
-  background: linear-gradient(
-    -40deg,
-    $main-color 47%,
-    #ff9557 100%
-  );
+::selection{background-color: $main-color;color: #fff;}
+
+@mixin mainfont{
+    font-family: "SUIT-Regular";
+    font-weight: 300;
+}
+@mixin fontWeightE{
+    font-weight: 700;
+}
+@mixin fontPoint{
+    font-family: "TTTtangsbudaejjigaeB";
 }
 @mixin txthide {
     text-indent: -5000000000000000px;
@@ -56,14 +28,12 @@ $border-color :#e5e8eb;
     font-size: 0px;
     text-align: left;
 }
-
 @mixin txtellipsis {
     text-overflow: ellipsis;
     white-space: nowrap;
     word-wrap: normal;
     overflow: hidden;
 }
-
 @mixin txtellipsisMulti($h:2.4rem, $lh:1.2rem, $l:2) {
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -75,32 +45,58 @@ $border-color :#e5e8eb;
     line-height: $lh;
     height: $h;
 }
-@mixin float{
-    overflow: hidden;
-    >*{
-        float: left;
+@mixin lineTxt(){    
+    -webkit-text-stroke: 1px $main-txt;
+    -webkit-text-fill-color: transparent;
+}
+@mixin lineTxtOn(){    
+    -webkit-text-stroke: 0px $main-txt;
+    -webkit-text-fill-color: $main-txt;
+}
+@mixin clear() {
+    &::after {
+        content: '';
+        display: block;
+        clear: both;
     }
 }
-
-@mixin flex{
+@mixin centerAlign($mw:144rem){
+    max-width: $mw;
+    margin: 0 auto;
+}
+@mixin centerMob($w:8rem){
+    width: calc(100% - $w);
+}
+@mixin centerPosition($t:50%,$l:50%,$tx:-50%,$ty:-50%){
+    position: absolute;
+    top: $t;
+    left: $l;
+    transform: translateX($tx) translateY($ty);
+}
+@mixin centerPositionMob(){
+    position: inherit;
+    top: 0;
+    left: 0;
+    transform: translate(0,0);
+}
+@mixin fullvh(){
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+}
+@mixin flex(){
     display: flex;
     justify-content: space-between;
     @content;
 }
-
-@mixin tablecell {
-    display: table;
-    table-layout: fixed;
-    width: 100%;
+@mixin flexCenter{
+    display: flex;
+    align-items: center;
     @content;
-    >* {
-        display: table-cell !important;
-    }
 }
-
-@mixin bgimg {
-    background-position: center;
+@mixin bgimg($s:100%,$p:center) {
+    background-position: $p;
     background-repeat: no-repeat;
+    background-size: $s;
 }
 
 @mixin virtualIcon($w:1rem, $h:1rem) {
@@ -112,80 +108,165 @@ $border-color :#e5e8eb;
     @include bgimg();
     @content;
 }
-@mixin scrollBox(){    
+@mixin customScroll($w:5px,$h:5px,$barcolor:$border-color,$bgrcolor:transparent){
+    overflow: hidden;
+    overflow-y: auto;
     &::-webkit-scrollbar {
-        width: 0px;
-        height: 0px;
+        width: $w;
+        height: $h;
     }
     &::-webkit-scrollbar-thumb {
-        background-color: $darkgray-color;
+        background-color: $barcolor;
         border-radius: 5px;
     }
     &::-webkit-scrollbar-track {
-        background-color: transparent;
+        background-color: $bgrcolor;
         border-radius: 5px;
     }
 }
-@mixin clear() {
-    &::after {
-        content: '';
-        display: block;
-        clear: both;
+//animation
+@keyframes ani-line {
+    0% {
+        height: 0;
     }
+    100% {
+        height:100%;
+    }
+}
+@keyframes ani-height {
+    0% {
+        height: 100%;
+    }
+    100% {
+        height:0%;
+    }
+}
+@keyframes ani-textfill {
+    0% {
+        -webkit-text-stroke: 1px $main-txt;
+        -webkit-text-fill-color: transparent;
+    }
+    100% {
+        -webkit-text-stroke: 0px $main-txt;
+        -webkit-text-fill-color: $main-txt;
+    }
+}
+@keyframes ani-textindent {
+    0% {
+        text-indent: -100%;
+    }
+    100% {
+        text-indent: 0%;
+    }
+}
+@keyframes ani-textindent2 {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+@keyframes ani-opacity {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+@keyframes ani-rotate {
+    0% {
+        transform:rotate(0deg);
+    }
+    100% {
+        transform:rotate(360deg);
+    }
+}
+@keyframes ani-rotate2 {
+    0% {
+        transform: rotate(0deg);
+    }
+    50%{        
+        transform: rotate(15deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+@mixin fadeCont($ty:100%){    
+    transform: translateY($ty);
+    opacity: 0;
+}
+@mixin aniFadeIn ($n,$s:1.5s,$d:0s,$t:translateY(50%),$t2:translateY(0%)) {
+    @keyframes #{$n} {
+        0% {
+            transform : $t;
+            opacity: 0;
+        }
+        100% {
+            transform : $t2;
+            opacity: 1;
+        }
+    }
+    animation: #{$n} $s ease-in-out $d forwards;
+}
+@mixin aniFadeOut ($n,$s:1.5s,$d:0s,$t:translateY(0%),$t2:translateY(-50%)) {
+    @keyframes #{$n} {
+        0% {
+            transform : $t;
+            opacity: 1;
+        }
+        100% {
+            transform : $t2;
+            opacity: 0;
+        }
+    }
+    animation: #{$n} $s ease-in-out $d forwards;
+}
+@keyframes ani-fadeinout {
+    0% {
+        transform : translateY(50%);
+        opacity: 0;
+    }
+    30% {
+        transform : translateY(0%);
+        opacity: 1;
+    }
+    70%{
+        transform : translateY(0%);
+        opacity: 1;
+    }
+    100%{
+        transform : translateY(-50%);
+        opacity: 0;
+    }
+}
+
+@mixin anitop ($n,$s:1.5s,$d:0s,$t:0%,$t2:20%) {
+    @keyframes #{$n} {
+        0% {
+            top : $t;
+        }
+        100% {
+            top : $t2;
+        }
+    }
+    animation: #{$n} $s ease-in-out $d forwards;
+}
+                              
+@keyframes cursor {
+    0% { border-right: 2px solid transparent; }
+    50% { border-right: 2px solid #fff; }
+    100% { border-right: 2px solid transparent; }
 }
 
 body,input,select,textarea,button,a{
     color: $main-txt;
     @include mainfont();
 }
-input{
-    padding: 0.5rem 1rem;
-}
-input[type="checkbox"]{
-    display: none;
-    &+label {
-        @include mainfont();
-        cursor: pointer;
-        &::before {
-            @include virtualIcon($w:1.5rem, $h:1.5rem) {
-                margin: -3px 0.5rem 0 0;
-                background-color: #fff;
-                border: 1px solid #ccc;
-                box-sizing: border-box;
-            }
-        }
-    }
-    &:checked+label {
-        &::before {
-            background-color: $main-color;
-            background-image: url("../image/icon_checkbox.svg");
-            background-size: 55%;
-            border: 1px solid $main-color;
-        }
-    }
-}
-select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    min-width:15rem;
-    padding: 0.6rem 3.1rem 0.6rem 1.4rem;
-    background-image: url('../../images/admin/ic_btn_down.png');
-    background-position: right 1rem center;
-    background-repeat: no-repeat;
-    border-radius: 1rem;
-    border: 1px solid $border-color;
-    font-size: 1.4rem;
-    cursor: pointer;
-    &::-ms-expand {
-        display: none;
-    }
-}
-.center {
-    position: relative;
-    max-width: 128rem;
-    margin: 0 auto;
-    clear: both;
+body{
+    touch-action: pan-x pan-y;
 }
 .red {
     color: #f00 !important;
@@ -196,81 +277,138 @@ select {
 .txt_blue {
     color: $blue-txt;
 }
+.txt_sub {
+    color: $sub-color;
+}
 .btn{
+    display: inline-block;    
+    padding: 0.8rem 0rem;
+    border-radius: 3.2rem;
+    @include fontPoint();
+    background-color: #fff;
+    color: $main-txt;
+}
+.playBtn{
     display: inline-block;
-    padding: 1.5rem 3rem;
-    border-radius: 1rem;
-    font-size: 1.4rem;
-    text-align: center;
-    border: 1px solid transparent;
-    &.btn_main{
-        background-color: $main-color;
-        color: #fff;
+    font-size: 4.8rem;
+    color: #fff;
+    @include fontWeightE();
+    vertical-align: middle;
+    &::after{
+        @include virtualIcon($w:4.8rem,$h:4.8rem){
+            margin:-0.5rem 0 0 2.5rem;
+            background-image: url('../images/btn_common_play.svg');  
+            vertical-align: middle; 
+         }
+         transition: all 0.3s;
     }
-    &.btn_sub{
-        background-color: $sub-color;
-        color: #fff;
-    }
-    &.btn_gradient{
-        @include gradient();
-        color: #fff;
-    }
-    &.btn_line_main{
-        border:1px solid $main-color;
-        color:  $main-color;
-    }
-    &.btn_line_b{
-        border:1px solid  $main-txt;
-        color: $main-txt;
-    }
-    &.btn_square{
-        border-radius: 0;
-    }
-    &.disabled {
-        border: solid 1px $darkgray-color !important;
-        background: $darkgray-color !important;
-        color: #fff !important;
+    &:hover{
+        &::after{
+            background-image: url('../images/btn_common_play_hover.svg');
+        }
     }
 }
-.loadingBlock {
-    position: fixed;
-    top: 0;
-    left: 0;
+.pc_br{
     display: block;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 10100;
+}
+.mob_br{
+    display: none;
+}
+.container{ 
+    position: relative;
+    @include fullvh();
+    overflow: hidden;
+    .pageWrap{
+        width: 100%;
+        @include fullvh();
+        transition-duration: 1.2s;
+            .page{                
+                position: relative;
+                width: 100%;
+                @include fullvh();
+                overflow: hidden;
+                .scrollBox{
+                    width: 100%;
+                    height: 100%;
+                    overflow-y: auto;               
+                    @include customScroll($w:0px);
+                }
+                .center{
+                    @include centerAlign();
+                }
+        }    
+    }
 }
 
-@media only screen and (max-width: 768px) {    
-    .bottomFixedWrap{
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        display: flex;   
-        width: 100%;
-        height: 4rem;        
-        z-index: 1000;
-        >button,>a{
-            flex: 1;
+.progressBarBox{
+    position: relative;
+    height: 100%;
+    .progressBar{
+        position: sticky;
+        top: calc(50% - 16rem + 9rem);
+        left: calc(100% - 26rem);
+        display: inline-block;
+        width: 1rem;
+        z-index: 500;
+        &::before{
+            position: absolute;
+            left: 0;
+            bottom: calc(120% + 5.5rem);
+            display: block;
+            width: 18rem;
+            content: attr(data-progressname);
+            @include fontPoint();
+            transform: translate(-48.5%,  -50%) rotate(90deg);
+            text-align: right;
+            font-size: 1.6rem;
         }
-        &.hide{
-            position: inherit;
+        span{
+            position: relative;
+            display: block;
+            height: 32rem;
+            width: 0.1rem;
+            background-color: #ccc;
+        }
+        i{
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 0%;
+            background-color: #373737;
         }
     }
 }
 
-@media only screen and (max-width: 480px) {
+
+@media only screen and (min-width: 1920px){
     html,body{
+        font-size: 10px;
+    }
+
+}
+@media only screen and (max-width: 768px) {
+    html,body{
+        font-size: 1.5vw;
+    }
+    .center{
+        @include centerMob($w:3rem);
+    }
+    .progressBarBox .progressBar{
+        //display: none;
+    }
+}
+@media only screen and (max-width: 600px) {
+    html,body{
+        font-size: 2.666666vw;
         //font-size: 4.267vw;
         //480기준 10px 1rem font-size: 2.08333vw;
         //360기준
-        font-size: 2.5vw;
+        //font-size: 2.5vw;
     }
-}
-@media only screen and (max-width: 280px) {
-    html,body{
-        font-size: 12px;
+    .pc_br{
+        display: none;
+    }
+    .mob_br{
+        display: block;
     }
 }
