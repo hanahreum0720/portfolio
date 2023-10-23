@@ -2,12 +2,22 @@
     .main01{
         &::before{
             position: absolute;
-            top: -9.1rem;
-            left: 106rem;
-            @include virtualIcon($w:28.1rem,$h:27.5rem){
-                background-image: url('../images/img_main_bg_obj_01.png');                             
+            top: 0;
+            left: 0;
+            @include virtualIcon($w:100%,$h:100%){
+                background-image: url(../image/main_bg01.jpg);                  
             }
-            @include aniFadeIn($n:main01-01,$t:translateY(-50%),$t2:translateY(0%));
+            filter: blur(3px) grayscale(1);
+        }
+        &::after{
+            position: absolute;
+            top: 0;
+            left: 0;
+            @include virtualIcon($w:100%,$h:30%){
+                background: rgb(255,255,255);
+                background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 100%);                
+                          
+            }
         }
         .scrollBox{
             .center{
@@ -19,8 +29,8 @@
                 &::after{
                     @include virtualIcon($w:7rem,$h:0.9rem){
                         margin:  4.8rem 0 0 -3rem;
-                        border-bottom: 1px solid #000;
-                        border-right: 1px solid #000;
+                        border-bottom: 1px solid $main-bg-txt;
+                        border-right: 1px solid $main-bg-txt;
                         transform: rotate(90deg) skew(225deg);   
                         opacity: 0;
                     }
@@ -29,38 +39,31 @@
                 span{
                     position: relative;
                     display: block;
-                    padding : 4.2rem 0;
-                    color: $main-txt;
+                    color: $main-bg-txt;
                     font-size: 10.4rem;
                     @include fontPoint();
+                    animation: ani-textfill 1s ease-in-out 7s forwards;
                     &::after {
                         content: '';
                         margin-left: 0.5rem;
                         border-right: 2px solid transparent;
-                        animation: cursor 1s infinite 1s;
+                        animation: cursor 1s infinite 0s;
                         animation-iteration-count : 3;
                     }
                     &:nth-of-type(2){
-                        padding-left: 16.6rem;
+                        padding-top: 3rem;
                         -webkit-text-fill-color: transparent;
-                        -webkit-text-stroke: 1px #aaa;
-                        &::before{
-                            @include centerPosition($l:0,$tx:0);
-                            @include virtualIcon($w:13.8rem,$h:1px){
-                                background-color: #707070;       
-                                transform: scaleX(0%);                     
-                            }
-                            @include aniFadeIn($n:main01-04,$s:0.5s,$d:3s,$t:translateX(-50%) scaleX(0%),$t2:translateX(0%) scaleX(100%));
-                        }
+                        -webkit-text-stroke: 1px $sub-color;
+                        animation: ani-textfill2 1s ease-in-out 7s forwards;
                         &::after{
-                            animation-delay: 3.5s;
+                            animation-delay: 2.5s;
                             animation-iteration-count : 2;
                         }
                     }
                     &:nth-of-type(3){
                         &::after{
                             margin-left: 1rem;
-                            animation-delay: 5s;
+                            animation-delay: 4.5s;
                             animation-iteration-count: infinite;
                         }
                     }
@@ -77,42 +80,110 @@
             @include fontPoint();
             font-size: 30rem;
             color: $gray-color;
-            opacity: 0.5;
+            opacity: 0.3;
         }
         .center{
             height: 5000px;
             .animateFadeList{
                 position: sticky;
-                top: calc(50% - 25vh);
+                top: calc(50% - 30vh);
                 width: 95%;
                 min-height: 60vh;
-                border-radius: 1rem;
-                background-color: #fff;
-                border: 1px solid $border-color;
-                box-shadow: 5px 5px 5px rgba(0,0,0,0.05);
-                overflow: hidden;
                 >li{
                     position: absolute;
                     top: 50%;
                     transform: translateY(-50%);
-                    @include flexCenter();
-                    justify-content: space-between;
                     width: 100%;
                     height: 100%;
                     font-size: 1.8rem;
-                    @include fontWeightE();
                     line-height: 1.5;
-                    text-align: center;
+                    list-style: none;
                     z-index: 1;
-                    &.now{
-                        z-index: 10;
-                    }
                     .fadeCont{
-                        flex: 1;
+                        @include flex();
+                        gap: 3rem;
                         width: 100%;
                         height: 100%;
                         @include fadeCont();
-                    }         
+                        img{
+                            display: inline-block;
+                            max-width: 50%;
+                            border-top: 20px solid $gray-color;
+                            border-bottom: 10px solid $gray-color;
+                            border-radius: 5px 5px 0 0;
+                            box-shadow: 5px 5px 5px rgba(0,0,0,0.05);
+                            overflow: hidden;
+                        }
+                        .txtBox{
+                            flex: 1;
+                            height: 50%;
+                            h3{
+                                float: left;
+                                margin-bottom: 1rem;
+                                font-size: 3rem;
+                                @include txtBold();
+                                &+span{
+                                    float: right;
+                                    margin-top: 1.5rem;
+                                    color: $gray-color
+                                }
+                            }
+                            p{
+                                clear: both;
+                                padding: 2rem;
+                                margin: 1rem 0;
+                                border: 1px solid $main-txt;
+                                border-radius: 1rem;
+                                @include txtLight();
+
+                            }
+                            ul{
+                                li{
+                                    display: inline-block;
+                                    margin-right: 1rem;
+                                    &::before{
+                                        content: '#';
+                                        color: $blue-txt;
+                                    }
+                                    span{
+                                        color: $blue-txt;
+                                    }
+                                }
+                            }
+                            .btnWrap{
+                                margin-top: 2rem;
+                                a{
+                                    display: ilnine-block;
+                                    padding: 1rem 2rem;
+                                    margin-right: 0.5rem;
+                                    border: 1px solid $sub-color;
+                                    background-color: $sub-color;
+                                    color: $main-bg-txt;
+                                    border-radius: 5rem;
+                                    transition: all 0.3s;
+                                    &:hover{
+                                        background-color: $main-color;
+                                        border-color: $main-color;
+                                    }
+                                }
+                            }
+
+                        }
+                    }     
+                    &:nth-child(even){
+                        .fadeCont{
+                            img{
+                                order: 2;
+                            }
+                            .txtBox{
+                                order: 1;
+                            }
+
+                        }
+                    }
+                    &.now{
+                        z-index: 10;
+                    }    
                     &.start{
                         &::before,&::after,.fadeCont{
                             @include aniFadeIn($n:solution-01,$s:0.8s,$d:1.3s,$t:translateY(50%),$t2:translateY(0%));
@@ -140,6 +211,12 @@
     }
     .main03{
       background-color: #1a1a1a;
+        h2{
+            @include fontPoint();
+            font-size: 5rem;
+            color: $main-bg-txt;
+            opacity: 0.7;
+        }
       .center{
         @include centerPosition();
         width: 95%;
@@ -149,21 +226,76 @@
             width: 100%;
             li{
                 flex: 1;
-                min-height: 50vh;
+                height: 30rem;
                 border-radius: 1rem;
-                background-color: #fff;
+                border: 2px double $main-color;
                 a{
-                    display: block;
+                    @include flex($j:center);
+                    width: 100%;
                     height: 100%;
+                    font-size: 5rem;
+                    @include txtBold();
+                    @include fontPoint();
+                    text-align: center;
+                    color: $main-color;
+                }
+                &:nth-child(1){
+                    border-color:$sub-color;
+                    a{
+                         color: $sub-color;
+                    }
+                }
+                &:hover{
+                    background-color:$main-color;                    
+                    a{
+                        color: $main-bg-txt;
+                    }
+                    &:nth-child(1){
+                        background-color:$sub-color;
+                        a{
+                            color: $main-bg-txt;
+                        }
+                    }
                 }
             }
+        }
+        p{
+            padding: 5rem 0 0;
+            text-align: center;
+            color: $main-bg-txt;
+            font-size: 2.5rem;
         }
       }
     }
     .main04{
+        background-color: $main-color;
         .center{
             @include centerPosition();
-
+            border: 10px solid $sub-color;
+            background-color: $main-bg-txt;
+            h2{
+                @include fontPoint();
+                font-size: 3rem;
+                color: $sub-color;
+            }
+            >div{
+                border-top: 1px solid $sub-color;
+                font-size: 2rem;
+                strong{
+                    display: block;
+                    color: $sub-color;
+                    border-bottom: 1px dashed $sub-color;
+                }
+                ul{
+                    li{
+                        @include txtLight();
+                        span{
+                            display: inline-block;
+                            margin-right:1rem;
+                        }
+                    }
+                }
+            }
         }
     }
 }

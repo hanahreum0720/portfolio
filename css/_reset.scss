@@ -7,12 +7,11 @@
     font-style: normal;
 }
 @font-face {
-    font-family: 'TTTtangsbudaejjigaeB';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/TTTtangsbudaejjigaeB.woff2') format('woff2');
-    font-weight: 700;
+    font-family: 'CWDangamAsac-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/CWDangamAsac-Bold.woff') format('woff');
+    font-weight: normal;
     font-style: normal;
 }
-  
 html,
 body,
 div,
@@ -126,8 +125,8 @@ h6 {
     font-weight: normal;
 }
 
-ol,
-ul {
+ol li,
+ul li{
     list-style: none;
 }
 

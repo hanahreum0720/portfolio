@@ -1,6 +1,8 @@
 //공통
 $main-color : #00bb9c;
+$sub-color :#ffa600;
 $gray-color: #d8d8d8;
+$bg-color:#f5f6fa;
 $border-color :#e5e8eb;
 $main-txt: #111;
 $red-txt : #f51a1a;
@@ -13,11 +15,14 @@ $main-bg-txt : #fff;
     font-family: "SUIT-Regular";
     font-weight: 300;
 }
-@mixin fontWeightE{
+@mixin txtLight{
+    font-weight: 100;
+}
+@mixin txtBold{
     font-weight: 700;
 }
 @mixin fontPoint{
-    font-family: "TTTtangsbudaejjigaeB";
+    font-family: "CWDangamAsac-Bold";
 }
 @mixin txthide {
     text-indent: -5000000000000000px;
@@ -80,14 +85,10 @@ $main-bg-txt : #fff;
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
 }
-@mixin flex(){
+@mixin flex($j:space-between,$a:center){
     display: flex;
-    justify-content: space-between;
-    @content;
-}
-@mixin flexCenter{
-    display: flex;
-    align-items: center;
+    justify-content: $j;
+    align-items: $a;
     @content;
 }
 @mixin bgimg($s:100%,$p:center) {
@@ -148,12 +149,22 @@ $main-bg-txt : #fff;
 }
 @keyframes ani-textfill {
     0% {
-        -webkit-text-stroke: 1px $main-txt;
+        -webkit-text-stroke: 0px $main-bg-txt;
+        -webkit-text-fill-color: $main-bg-txt;
+    }
+    100% {
+        -webkit-text-stroke: 1px $main-bg-txt;
+        -webkit-text-fill-color: transparent;
+    }
+}
+@keyframes ani-textfill2 {
+    0% {
+        -webkit-text-stroke: 1px $sub-color;
         -webkit-text-fill-color: transparent;
     }
     100% {
-        -webkit-text-stroke: 0px $main-txt;
-        -webkit-text-fill-color: $main-txt;
+        -webkit-text-stroke: 0px $sub-color;
+        -webkit-text-fill-color: $sub-color;
     }
 }
 @keyframes ani-textindent {
@@ -294,7 +305,7 @@ body{
     display: inline-block;
     font-size: 4.8rem;
     color: #fff;
-    @include fontWeightE();
+    @include txtBold();
     vertical-align: middle;
     &::after{
         @include virtualIcon($w:4.8rem,$h:4.8rem){

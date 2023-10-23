@@ -62,9 +62,8 @@ $(document).ready(function(){
         wheel();  
     })
     
-    $("h1 span, .pageMenu span").on('click',function(){
+    $("h1 span, .pageMenu button").on('click',function(){
         current = $(this).parents('li').index() + 1;
-        console.log(current);
         wheel(current);
     })
     
