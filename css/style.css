@@ -499,7 +499,7 @@ footer .center .copyright {
   header {
     top: 3rem;
   }
-  header .center span {
+  header .center span, header .center button {
     font-size: 1.6rem;
   }
   header .center .pageMenu {
@@ -583,14 +583,14 @@ footer .center .copyright {
   display: block;
   height: 32rem;
   width: 0.1rem;
-  background-color: #111;
+  background-color: #00bb9c;
 }
 .progressBarBox .progressBar i {
   position: absolute;
   display: block;
   width: 100%;
   height: 0%;
-  background-color: #00bb9c;
+  background-color: #ffa600;
 }
 
 .main .main01::before {
@@ -786,8 +786,8 @@ footer .center .copyright {
   left: 0;
   display: inline-block;
   max-width: 40%;
-  border-top: 20px solid #d8d8d8;
-  border-bottom: 10px solid #d8d8d8;
+  border-top: 2rem solid #d8d8d8;
+  border-bottom: 1rem solid #d8d8d8;
   border-radius: 5px 5px 0 0;
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
@@ -1180,31 +1180,91 @@ footer .center .copyright {
 }
 
 @media only screen and (max-width: 768px) {
+  .progressBarBox .progressBar {
+    top: 67%;
+    left: 50%;
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+  }
+  .progressBarBox .progressBar::before {
+    display: none;
+  }
+  .progressBarBox .progressBar span {
+    width: 1rem;
+  }
+  .main .main01::before {
+    background-size: auto 100%;
+  }
   .main .main01 .scrollBox p {
     position: inherit;
-    top: 0;
+    top: 30%;
     left: 0;
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
-    top: 20%;
-  }
-  .main .main01 .scrollBox p::after {
-    display: none;
   }
   .main .main01 .scrollBox p span {
-    padding: 1rem 0 1rem 1.5rem;
-    font-size: 5.5rem;
-    line-height: 1.5;
-    letter-spacing: -1.5px;
+    font-size: 5rem;
+    line-height: 1.25;
   }
-  .main .main01 .scrollBox p span:nth-of-type(2) {
-    padding-left: 1.5rem;
+  .main .main02 .animateRow span {
+    -webkit-animation-duration: 10s !important;
+            animation-duration: 10s !important;
   }
-  .main .main01 .scrollBox p span:nth-of-type(2)::before {
-    width: 2.3rem;
-    left: -5%;
+  .main .main02 .center .animateFadeList > li .fadeCont img {
+    top: -10%;
+    max-width: 80%;
   }
-  .main .main01 .scrollBox p span:nth-of-type(3) {
-    width: 71%;
+  .main .main02 .center .animateFadeList > li .fadeCont .txtBox {
+    top: 10%;
+    width: 95%;
+    height: 35rem;
+    max-height: 48vh;
+    padding: 4rem 1.5rem 3em 3rem;
+  }
+  .main .main02 .center .animateFadeList > li .fadeCont .txtBox > div:nth-of-type(1) {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 0;
+  }
+  .main .main02 .center .animateFadeList > li .fadeCont .txtBox h3 {
+    font-size: 2.2rem;
+  }
+  .main .main02 .center .animateFadeList > li .fadeCont .txtBox p {
+    font-size: 1.3rem;
+  }
+  .main .main02 .center .animateFadeList > li .fadeCont .txtBox ul > li {
+    display: block;
+    margin: 0;
+    font-size: 1.3rem;
+  }
+  .main .main02 .center .animateFadeList > li .fadeCont .txtBox .btnWrap {
+    top: 90%;
+    right: -1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .main .main02 .center .animateFadeList > li .fadeCont .txtBox .btnWrap a {
+    width: 9.3rem;
+    height: 9.3rem;
+    font-size: 1.6rem;
+    margin: 0 -1rem 0 0;
+  }
+  .main .main04::before {
+    background-size: 10%;
+  }
+  .main .main04 .center > div {
+    font-size: 1.6rem;
   }
 }/*# sourceMappingURL=style.css.map */

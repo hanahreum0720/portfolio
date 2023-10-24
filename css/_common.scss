@@ -75,9 +75,9 @@ $main-bg-txt : #fff;
     left: $l;
     transform: translateX($tx) translateY($ty);
 }
-@mixin centerPositionMob(){
+@mixin centerPositionMob($t:0){
     position: inherit;
-    top: 0;
+    top: $t;
     left: 0;
     transform: translate(0,0);
 }
