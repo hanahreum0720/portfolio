@@ -1,3 +1,69 @@
+
+.container{ 
+    position: relative;
+    @include fullvh();
+    overflow: hidden;
+    .pageWrap{
+        width: 100%;
+        @include fullvh();
+        transition-duration: 1.2s;
+            .page{                
+                position: relative;
+                width: 100%;
+                @include fullvh();
+                overflow: hidden;
+                .scrollBox{
+                    width: 100%;
+                    height: 100%;
+                    overflow-y: auto;               
+                    @include customScroll($w:0px);
+                }
+                .center{
+                    @include centerAlign();
+                }
+        }    
+    }
+}
+
+.progressBarBox{
+    position: relative;
+    height: 100%;
+    .progressBar{
+        position: sticky;
+        top: calc(50% - 16rem + 9rem);
+        left: calc(100% - 26rem);
+        display: inline-block;
+        width: 1rem;
+        z-index: 500;
+        &::before{
+            position: absolute;
+            left: 0;
+            bottom: calc(120% + 5.5rem);
+            display: block;
+            width: 20rem;
+            content: attr(data-progressname);
+            @include fontPoint();
+            transform: translate(-48.5%,  -50%) rotate(90deg);
+            text-align: right;
+            font-size: 1.6rem;
+        }
+        span{
+            position: relative;
+            display: block;
+            height: 32rem;
+            width: 0.1rem;
+            background-color: $main-txt;
+        }
+        i{
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 0%;
+            background-color: $main-color;
+        }
+    }
+}
+
 .main{
     .main01{
         &::before{
@@ -74,13 +140,31 @@
     
     .main02{
         h2{
+            display: none;
+        }
+        .animateRow{            
             position: sticky;
             top: 75%;
             left: -15%;
             @include fontPoint();
-            font-size: 30rem;
+            font-size: 10rem;
             color: $gray-color;
             opacity: 0.3;
+            span{
+                @include flex();
+                white-space: nowrap;
+                word-break: keep-all;
+                transform: translateX(0%);
+                &:nth-child(1){                    
+                    animation: ani-loop 50s linear infinite;
+                }
+                &:nth-child(2){
+                    
+                    animation: ani-loop2 50s linear infinite;
+                }
+
+            }
+            
         }
         .center{
             height: 5000px;
@@ -100,14 +184,16 @@
                     list-style: none;
                     z-index: 1;
                     .fadeCont{
-                        @include flex();
                         gap: 3rem;
                         width: 100%;
                         height: 100%;
                         @include fadeCont();
                         img{
+                            position:absolute;
+                            top: 10%;
+                            left: 0;
                             display: inline-block;
-                            max-width: 50%;
+                            max-width: 40%;
                             border-top: 20px solid $gray-color;
                             border-bottom: 10px solid $gray-color;
                             border-radius: 5px 5px 0 0;
@@ -115,25 +201,35 @@
                             overflow: hidden;
                         }
                         .txtBox{
-                            flex: 1;
-                            height: 50%;
+                            position:absolute;
+                            top: 30%;
+                            right: 0;
+                            width: 65%;
+                            height: 40rem;
+                            padding: 5rem;
+                            background-color: rgba(255, 255, 255, 0.95);
+                            border: 1px solid $main-txt;
+                            border-radius: 2rem;
+                            >div{
+                                &:nth-of-type(1){
+                                    @include flex($j:left,$a:end);
+                                    gap: 1rem;
+                                }
+                                &:nth-of-type(2){
+                                    @include flex($j:end,$a:baseline);
+                                    flex-direction: column;
+                                    height: 80%;
+                                }
+                            }
                             h3{
-                                float: left;
-                                margin-bottom: 1rem;
                                 font-size: 3rem;
                                 @include txtBold();
                                 &+span{
-                                    float: right;
-                                    margin-top: 1.5rem;
                                     color: $gray-color
                                 }
                             }
                             p{
-                                clear: both;
-                                padding: 2rem;
-                                margin: 1rem 0;
-                                border: 1px solid $main-txt;
-                                border-radius: 1rem;
+                                max-width: 90%;
                                 @include txtLight();
 
                             }
@@ -142,28 +238,47 @@
                                     display: inline-block;
                                     margin-right: 1rem;
                                     &::before{
+                                        display: inline-block;
                                         content: '#';
-                                        color: $blue-txt;
+                                        color: $sub-color;
+                                        vertical-align: middle;
                                     }
                                     span{
-                                        color: $blue-txt;
+                                        color: $sub-color;
                                     }
                                 }
                             }
                             .btnWrap{
+                                position: absolute;
+                                top: -3rem;
+                                right: -1.8rem;
                                 margin-top: 2rem;
                                 a{
-                                    display: ilnine-block;
-                                    padding: 1rem 2rem;
-                                    margin-right: 0.5rem;
-                                    border: 1px solid $sub-color;
+                                    @include flex($j:center);
+                                    width: 13rem;
+                                    height: 13rem;
+                                    padding: 1rem;
+                                    margin-top: -1.5rem;
                                     background-color: $sub-color;
                                     color: $main-bg-txt;
-                                    border-radius: 5rem;
+                                    border-radius: 50%;
+                                    font-size: 2.3rem;
+                                    text-align: center;
+                                    word-break: keep-all;
+                                    line-height: 1.2;
+                                    mix-blend-mode: multiply;
                                     transition: all 0.3s;
                                     &:hover{
+                                        background-color: $main-txt;
+                                    }
+                                    &:nth-child(even){
                                         background-color: $main-color;
-                                        border-color: $main-color;
+                                        &:hover{
+                                            border:1px solid $main-txt;
+                                            background-color: #fff;
+                                            color: $main-txt;
+                                        }
+
                                     }
                                 }
                             }
@@ -269,6 +384,19 @@
     }
     .main04{
         background-color: $main-color;
+        &::before{
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-image: url(../image/bgchk.png); 
+            background-size: 0.5%; 
+            filter: brightness(1);
+            opacity: 0.3;
+        }
         .center{
             @include centerPosition();
             border: 10px solid $sub-color;
